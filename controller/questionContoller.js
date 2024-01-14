@@ -1,33 +1,3 @@
-// const dbConnection = require("../db/dbConfig");
-// const { StatusCodes } = require('http-status-codes');
-
-// async function createQuestions(req, res) {
-//   const { userid, title, description, tag } = req.body;
-
-//   if (!userid || !title) {
-//     return res.status(StatusCodes.BAD_REQUEST).json({ msg: "Please provide all required information" });
-//   }
-
-//   try {
-//     const [existingQuestion] = await dbConnection.query("SELECT quesitionid FROM questions WHERE title = ?", [title]);
-
-//     if (existingQuestion.length > 0) {
-//       return res.status(StatusCodes.CONFLICT).json({ success: false, error: "Question already exists" });
-//     }
-
-//     const [result] = await dbConnection.query(
-//       "INSERT INTO questions (userid, title, description, tag) VALUES (?, ?, ?, ?)",
-//       [userid, title, description, tag]
-//     );
-
-//     return res.status(StatusCodes.CREATED).json({ success: true, userid: result.insertId });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ success: false, error: 'Failed to create question' });
-//   }
-// }
-
-// module.exports = { createQuestions };
 const { StatusCodes } = require("http-status-codes");
 const dbConnection = require("../db/dbConfig");
 

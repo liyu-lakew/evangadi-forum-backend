@@ -12,9 +12,9 @@ const answerRoutes = require("./routes/answerRoute");
 
 app.use(express.json());
 app.use("/api/users", userRoutes);
-app.use("/api/questions", questionRoutes);
+app.use("/api/questions",authMiddleware, questionRoutes);
 // answers routes middleware ??
-app.use("/api/answers",answerRoutes)
+app.use("/api/answers",authMiddleware, answerRoutes)
 async function start() {
   try {
     const result = await dbConnection.execute("select 'test' ");
