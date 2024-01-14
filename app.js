@@ -10,6 +10,8 @@ const userRoutes = require("./routes/userRoute");
 const questionRoutes = require("./routes/questionRoute");
 const answerRoutes = require("./routes/answerRoute");
 
+const authMiddleware = require("./middleware/authMiddleware");
+
 app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/questions",authMiddleware, questionRoutes);
